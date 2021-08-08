@@ -14,6 +14,7 @@ import getMergeSortAnimations from "../../helpers/mergeSort"
 const SortingVisualizer = (props) => {
   const [array, setArray] = useState([])
   const [animationSpeed, setAnimationSpeed] = useState(10)
+  const [iterationCount, setIterationCount] = useState(0)
   const { height, width } = useWindowDimensions()
 
 
@@ -23,6 +24,7 @@ const SortingVisualizer = (props) => {
       el.style.backgroundColor = ''
     })
     setArray(resetArray(5, (height - 20), (width / 20)))
+    setIterationCount(0)
   }
 
   const changeSpeed = (speed) => {
@@ -60,6 +62,7 @@ const SortingVisualizer = (props) => {
         }, i * animationSpeed)
       }
     }
+    setIterationCount(animations.length)
   }
 
   const mergeSort = () => {
@@ -101,6 +104,7 @@ const SortingVisualizer = (props) => {
       <SortingMenu
         randomize={renderBars}
         animationSpeed={changeSpeed}
+        iterationCount={iterationCount}
         bubbleSort={bubbleSort}
         mergeSort={mergeSort}
       />
