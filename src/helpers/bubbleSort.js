@@ -1,7 +1,7 @@
 const getBubbleSortAnimations = (inputArr) => {
   const animations = []
   if (inputArr.length <= 1) return inputArr
-  console.log('new', bubbleSort(inputArr, animations))
+  bubbleSort(inputArr, animations)
   return animations
 }
 
