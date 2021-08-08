@@ -8,7 +8,7 @@ const SortingMenu = ({ randomize, animationSpeed, bubbleSort, mergeSort, iterati
       <h1 className="text-center">Sorting Menu</h1>
       <div className="items-center justify-center">
         <h2 className="m-2">Chart Settings</h2>
-        <button type='button' className="object-center p-2 m-2 rounded-lg bg-blue-500 shadow-sm hover:shadow-md text-white bg-blue-500transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => randomize()}>Randomize Bars</button>
+        <button type='button' className="font-bold object-center p-2 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white bg-blue-500transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => randomize()}>Randomize Bars</button>
         <label className="flex flex-col p-2">
           Iteration Speed
           <input className="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-128" type="range" min="1" max="100" step="1" value={sliderValue} onChange={(event) => { animationSpeed(event.target.value); setSliderValue(event.target.value) }} />
@@ -18,8 +18,8 @@ const SortingMenu = ({ randomize, animationSpeed, bubbleSort, mergeSort, iterati
 
       <div className="">
         <h2 className="m-2">Algorithms</h2>
-        <button type='button' className="w-20 p-1 m-2 rounded-lg bg-blue-500 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => bubbleSort()}>Bubble Sort</button>
-        <button type='button' className="w-20 p-1 m-2 rounded-lg bg-blue-500 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => mergeSort()}>Merge Sort</button>
+        <button type='button' className="font-bold w-20 p-1 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => bubbleSort()}>Bubble Sort</button>
+        <button type='button' className="font-bold w-20 p-1 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => mergeSort()}>Merge Sort</button>
       </div>
 
       <div className="divide">
