@@ -1,5 +1,6 @@
 import SortingVisualizer from "./components/SortingVisualizer/SortingVisualizer";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <SortingVisualizer />
 
       </div>
+      <Footer />
     </div>
   );
 }
