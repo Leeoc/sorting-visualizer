@@ -1,7 +1,7 @@
 import PreviousMap from "postcss/lib/previous-map";
 import React, { useState } from "react"
 
-const SortingMenu = ({ randomize, animationSpeed, bubbleSort, mergeSort, iterationCount }) => {
+const SortingMenu = ({ randomize, animationSpeed, bubbleSort, mergeSort, quickSort, iterationCount }) => {
   const [sliderValue, setSliderValue] = useState('50')
   return (
     <div className="h-50 w-96 p-5 m-5 bg-gray-50 shadow-md dark:bg-gray-800 rounded-lg self-start flex-grow-0">
@@ -20,6 +20,7 @@ const SortingMenu = ({ randomize, animationSpeed, bubbleSort, mergeSort, iterati
         <h2 className="m-2">Algorithms</h2>
         <button type='button' className="font-bold w-20 p-1 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => bubbleSort()}>Bubble Sort</button>
         <button type='button' className="font-bold w-20 p-1 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => mergeSort()}>Merge Sort</button>
+        <button type='button' className="font-bold w-20 p-1 m-2 rounded-lg bg-blue-600 shadow-sm hover:shadow-md text-white transition duration-500 ease-in-out hover:bg-blue-600 transform hover:-translate-y-1 hover:scale-110" onClick={() => quickSort()}>Quick Sort</button>
       </div>
 
       <div className="divide">

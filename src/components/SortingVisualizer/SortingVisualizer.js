@@ -10,6 +10,7 @@ import SortingMenu from "../SortingMenu/SortingMenu"
 import resetArray from "../../helpers/resetArray"
 import getBubbleSortAnimations from "../../helpers/bubbleSort"
 import getMergeSortAnimations from "../../helpers/mergeSort"
+import getQuickSortAnimations from "../../helpers/quickSort"
 
 const SortingVisualizer = (props) => {
   const [array, setArray] = useState([])
@@ -34,7 +35,6 @@ const SortingVisualizer = (props) => {
   const bubbleSort = () => {
     const animations = getBubbleSortAnimations(array)
 
-    console.log(animations)
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar')
 
@@ -87,6 +87,46 @@ const SortingVisualizer = (props) => {
         }, i * animationSpeed)
       }
     }
+    setIterationCount(animations.length)
+  }
+
+  const quickSort = () => {
+    const animations = getQuickSortAnimations(array)
+    console.log(animations)
+    const arrayBars = document.getElementsByClassName('array-bar')
+    for (let i = 0; i < animations.length - 1; i++) {
+
+      if (animations[i].comparison) {
+
+        const [barOneIdx, barTwoIdx] = animations[i].comparison
+
+        const barOneStyle = arrayBars[barOneIdx].style
+        const barTwoStyle = arrayBars[barTwoIdx].style
+
+        setTimeout(() => {
+          barOneStyle.backgroundColor = '#3B82F6'
+          barTwoStyle.backgroundColor = '#3B82F6'
+        }, i * animationSpeed)
+
+      } else if (animations[i].swap) {
+        setTimeout(() => {
+          const animation = animations[i].swap
+          const [barOneIdx, newHeight] = animation[0]
+          const [barTwoIdx, barTwoNewHeight] = animation[1]
+
+          arrayBars[barOneIdx].style.height = `${newHeight}px`
+          arrayBars[barTwoIdx].style.height = `${barTwoNewHeight}px`
+          arrayBars[barOneIdx].style.backgroundColor = '#7b68ee'
+          arrayBars[barTwoIdx].style.backgroundColor = '#7b68ee'
+        }, i * animationSpeed)
+      } else if (animations[i].pointer) {
+        setTimeout(() => {
+          const barOneIdx = animations[i].pointer
+          arrayBars[barOneIdx].style.backgroundColor = '#80ff80'
+        }, i * animationSpeed)
+      }
+    }
+    console.log("finished")
   }
 
   useEffect(() => {
@@ -107,6 +147,7 @@ const SortingVisualizer = (props) => {
         iterationCount={iterationCount}
         bubbleSort={bubbleSort}
         mergeSort={mergeSort}
+        quickSort={quickSort}
       />
     </div>
 
