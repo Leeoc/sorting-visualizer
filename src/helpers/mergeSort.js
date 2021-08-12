@@ -1,24 +1,34 @@
+let iterationCount = 0;
+
 const getMergeSortAnimations = (array) => {
   const animations = [];
   if (array.length <= 1) return array;
   const auxiliaryArray = array.slice();
+
+  const startTime = performance.now();
   mergeSortHelper(array, 0, array.length - 1, auxiliaryArray, animations);
-  return animations;
-}
+  const endTime = performance.now();
+
+  const metaData = {
+    time: endTime - startTime,
+    iterationCount: iterationCount,
+  };
+  return [animations, metaData];
+};
 
 const mergeSortHelper = (
   mainArray,
   startIdx,
   endIdx,
   auxiliaryArray,
-  animations,
+  animations
 ) => {
   if (startIdx === endIdx) return;
   const middleIdx = Math.floor((startIdx + endIdx) / 2);
   mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
   mergeSortHelper(auxiliaryArray, middleIdx + 1, endIdx, mainArray, animations);
   doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
-}
+};
 
 const doMerge = (
   mainArray,
@@ -26,12 +36,13 @@ const doMerge = (
   middleIdx,
   endIdx,
   auxiliaryArray,
-  animations,
+  animations
 ) => {
   let k = startIdx;
   let i = startIdx;
   let j = middleIdx + 1;
   while (i <= middleIdx && j <= endIdx) {
+    iterationCount++;
     // These are the values that we're comparing; we push them once
     // to change their color.
     animations.push([i, j]);
@@ -51,6 +62,7 @@ const doMerge = (
     }
   }
   while (i <= middleIdx) {
+    iterationCount++;
     // These are the values that we're comparing; we push them once
     // to change their color.
     animations.push([i, i]);
@@ -63,6 +75,7 @@ const doMerge = (
     mainArray[k++] = auxiliaryArray[i++];
   }
   while (j <= endIdx) {
+    iterationCount++;
     // These are the values that we're comparing; we push them once
     // to change their color.
     animations.push([j, j]);
@@ -74,6 +87,6 @@ const doMerge = (
     animations.push([k, auxiliaryArray[j]]);
     mainArray[k++] = auxiliaryArray[j++];
   }
-}
+};
 
-export default getMergeSortAnimations
+export default getMergeSortAnimations;

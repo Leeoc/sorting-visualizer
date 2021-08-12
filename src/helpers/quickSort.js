@@ -1,12 +1,18 @@
+let iterationCount = 0
+
 const getQuickSortAnimations = (array) => {
   const animations = [];
   if (array.length <= 1) return array;
-  const startTime = performance.now()
+
+  const startTime = performance.now();
   quickSort(array, animations)
-  const endTime = performance.now()
-  const time = endTime - startTime;
-  console.log(time)
-  return animations.slice(0, -1)
+  const endTime = performance.now();
+
+  const metaData = {
+    time: endTime - startTime,
+    iterationCount: iterationCount,
+  };
+  return [animations.slice(0, -1), metaData];
 }
 
 const pivot = (arr, animations, start = 0, end = arr.length + 1) => {
@@ -15,6 +21,7 @@ const pivot = (arr, animations, start = 0, end = arr.length + 1) => {
     pointer = start;
 
   for (let i = start; i < arr.length; i++) {
+    iterationCount++
     animations.push({ 'comparison': [i, start] })
     if (arr[i] < pivot) {
       // animations.push({ 'swap': [pivot, i] })
