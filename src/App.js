@@ -4,11 +4,10 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="dark:bg-gray-700">
       <Navbar />
       <div className="flex items-center justify-center h-screen">
         <SortingVisualizer />
-
       </div>
       <Footer />
     </div>

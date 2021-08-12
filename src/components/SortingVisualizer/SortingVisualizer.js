@@ -158,8 +158,8 @@ const SortingVisualizer = (props) => {
   }, [width]);
 
   return (
-    <div className="flex">
-      <div className="container items-center justify-center drop-shadow-md dark:bg-gray-800 h-full flex-grow">
+    <div className="flex items-center justify-center place-items-center mb-2">
+      <div className="container  place-items-center text-center shadow-md p-1  drop-shadow-md dark:bg-gray-800 h-full flex-grow rounded p-1">
         {array.map((value, idx) => {
           return (
             <div
