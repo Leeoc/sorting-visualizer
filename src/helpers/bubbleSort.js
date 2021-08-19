@@ -43,6 +43,7 @@ const bubbleSort = (inputArr, animations) => {
       }
     }
   } while (swapped);
+  return inputArr;
 };
 
 export default getBubbleSortAnimations;
