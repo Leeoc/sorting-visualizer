@@ -1,7 +1,8 @@
 let iterationCount = 0;
 
-const getBubbleSortAnimations = (inputArr) => {
+const getBubbleSortAnimations = (arr) => {
   const animations = [];
+  let inputArr = [...arr];
   if (inputArr.length <= 1) return inputArr;
 
   const startTime = performance.now();
@@ -42,7 +43,6 @@ const bubbleSort = (inputArr, animations) => {
       }
     }
   } while (swapped);
-  return inputArr;
 };
 
 export default getBubbleSortAnimations;

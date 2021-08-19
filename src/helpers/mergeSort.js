@@ -1,7 +1,9 @@
 let iterationCount = 0;
 
-const getMergeSortAnimations = (array) => {
+const getMergeSortAnimations = (arr) => {
   const animations = [];
+  let array = [...arr];
+
   if (array.length <= 1) return array;
   const auxiliaryArray = array.slice();
 

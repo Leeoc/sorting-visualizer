@@ -1,7 +1,8 @@
 let iterationCount = 0;
 
-const getInsertionSortAnimations = (inputArr) => {
+const getInsertionSortAnimations = (arr) => {
   const animations = [];
+  let inputArr = [...arr];
 
   const startTime = performance.now();
   insertionSort(inputArr, animations);

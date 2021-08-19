@@ -1,11 +1,13 @@
 let iterationCount = 0
 
-const getQuickSortAnimations = (array) => {
+const getQuickSortAnimations = (arr) => {
   const animations = [];
+  let array = [...arr];
+
   if (array.length <= 1) return array;
 
   const startTime = performance.now();
-  quickSort(array, animations)
+  quickSort(array, animations);
   const endTime = performance.now();
 
   const metaData = {
@@ -13,7 +15,7 @@ const getQuickSortAnimations = (array) => {
     iterationCount: iterationCount,
   };
   return [animations.slice(0, -1), metaData];
-}
+};
 
 const pivot = (arr, animations, start = 0, end = arr.length + 1) => {
   const swap = (list, a, b) => [list[a], list[b]] = [list[b], list[a]];
