@@ -6,10 +6,9 @@ function App() {
   return (
     <div className="dark:bg-gray-700">
       <Navbar />
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-auto p-5">
         <SortingVisualizer />
       </div>
-      <Footer />
     </div>
   );
 }

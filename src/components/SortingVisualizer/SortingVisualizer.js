@@ -5,17 +5,19 @@ import useWindowDimensions from "../../hooks/useWindowDimensions"
 
 // Component imports
 import SortingMenu from "../SortingMenu/SortingMenu"
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 // Helper functions
-import resetArray from "../../helpers/resetArray"
-import getBubbleSortAnimations from "../../helpers/bubbleSort"
-import getMergeSortAnimations from "../../helpers/mergeSort"
-import getQuickSortAnimations from "../../helpers/quickSort"
-import getInsertionSortAnimations from "../../helpers/insertionSort"
+import resetArray from "../../helpers/resetArray";
+import getBubbleSortAnimations from "../../helpers/bubbleSort";
+import getMergeSortAnimations from "../../helpers/mergeSort";
+import getQuickSortAnimations from "../../helpers/quickSort";
+import getInsertionSortAnimations from "../../helpers/insertionSort";
 
 const SortingVisualizer = (props) => {
-  const [array, setArray] = useState([])
-  const [animationSpeed, setAnimationSpeed] = useState(10)
+  const [array, setArray] = useState([]);
+  const [animationSpeed, setAnimationSpeed] = useState(10);
   const [metaData, setMetaData] = useState({});
   const { height, width } = useWindowDimensions();
 
@@ -24,7 +26,7 @@ const SortingVisualizer = (props) => {
     Array.from(elArray).forEach((el) => {
       el.style.backgroundColor = "";
     });
-    setArray(resetArray(5, height - 20, width / 20));
+    setArray(resetArray(5, height - 20, width / 21));
     setMetaData({});
   };
 
@@ -158,29 +160,33 @@ const SortingVisualizer = (props) => {
   }, [width]);
 
   return (
-    <div className="flex items-center justify-center place-items-center mb-2">
-      <div className="container  place-items-center text-center shadow-md p-1  drop-shadow-md dark:bg-gray-800 h-full flex-grow rounded p-1">
-        {array.map((value, idx) => {
-          return (
-            <div
-              className="w-2 bg-blue-500 inline-block mr-1 array-bar"
-              key={idx}
-              style={{ height: `${value}px` }}
-            ></div>
-          );
-        })}
+    <div>
+      <div className="m-5"></div>
+      <div className="flex items-center justify-center place-items-center mb-2 md:flex-nowrap flex-wrap">
+        <div className="container  place-items-center text-center shadow-md p-1  drop-shadow-md dark:bg-gray-800 h-full flex-grow rounded p-1">
+          {array.map((value, idx) => {
+            return (
+              <div
+                className="w-2 bg-blue-500 inline-block mr-1 array-bar"
+                key={idx}
+                style={{ height: `${value}px` }}
+              ></div>
+            );
+          })}
+        </div>
+        <SortingMenu
+          randomize={renderBars}
+          animationSpeed={changeSpeed}
+          metaData={metaData}
+          bubbleSort={bubbleSort}
+          mergeSort={mergeSort}
+          quickSort={quickSort}
+          insertionSort={insertionSort}
+        />
       </div>
-      <SortingMenu
-        randomize={renderBars}
-        animationSpeed={changeSpeed}
-        metaData={metaData}
-        bubbleSort={bubbleSort}
-        mergeSort={mergeSort}
-        quickSort={quickSort}
-        insertionSort={insertionSort}
-      />
+      <Footer />
     </div>
   );
-}
+};
 
 export default SortingVisualizer

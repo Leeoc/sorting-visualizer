@@ -15,7 +15,7 @@ const SortingMenu = ({
   const [sliderValue, setSliderValue] = useState("50");
   const [colorTheme, setTheme] = useDarkMode();
   return (
-    <div className="h-50 w-96 p-5 m-5 bg-gray-50 shadow-md dark:bg-gray-800 rounded-lg self-start flex-grow-0">
+    <div className="h-full w-full p-5 m-5 bg-gray-50 shadow-md dark:bg-gray-800 rounded-lg self-start flex-grow-0 md:w-96 md:h-50">
       <h1 className="text-center dark:text-gray-50">Sorting Menu</h1>
       <div className="items-center justify-center">
         <h2 className="m-2 dark:text-gray-50">Chart Settings</h2>
@@ -26,7 +26,7 @@ const SortingMenu = ({
         >
           Randomize Bars
         </button>
-        <label className="flex flex-col p-2 dark:text-gray-50 mt-1">
+        <label className="flex flex-col p-2 dark:text-gray-50 mt-1 flex-nowrap sm:flex-wrap">
           Iteration Speed
           <input
             className="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-128 dark:bg-gray-50 mt-1"
