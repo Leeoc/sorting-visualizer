@@ -4,9 +4,7 @@ import { React, useEffect, useState } from "react"
 import useWindowDimensions from "../../hooks/useWindowDimensions"
 
 // Component imports
-import SortingMenu from "../SortingMenu/SortingMenu"
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+import SortingMenu from "../SortingMenu/SortingMenu";
 
 // Helper functions
 import resetArray from "../../helpers/resetArray";
@@ -184,7 +182,6 @@ const SortingVisualizer = (props) => {
           insertionSort={insertionSort}
         />
       </div>
-      <Footer />
     </div>
   );
 };

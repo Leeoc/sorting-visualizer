@@ -9,6 +9,7 @@ function App() {
       <div className="flex items-center justify-center h-auto p-5">
         <SortingVisualizer />
       </div>
+      <Footer />
     </div>
   );
 }
